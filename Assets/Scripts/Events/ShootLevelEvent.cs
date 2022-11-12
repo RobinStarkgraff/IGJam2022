@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShootLevelEvent : LevelEvent
 {
-    private void Start()
+    private void Awake()
     {
         startPoint = ownEndPoint;
         endPoint = ownStartPoint;

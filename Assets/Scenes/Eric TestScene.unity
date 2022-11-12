@@ -306,7 +306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c180644a46d43779f8fc82e5061b3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  prefabShootLevelEvent: {fileID: 3687597407473129901, guid: 38a77eca56832428c8554be33a90521a, type: 3}
+  prefabJumpLevelEvent: {fileID: 3687597407473129901, guid: ea53003fce39e48b18483c5afa96e9d4, type: 3}
+  prefabShootPlayerEvent: {fileID: 3687597407473129901, guid: 38ee247f3c0cf4c5d857d9415a277e6a, type: 3}
+  prefabJumpPlayerEvent: {fileID: 3687597407473129901, guid: c1f995ddcdf8c4480bd618ed80867562, type: 3}
   gameSpeed: 3
   minimumEventDowntime: 2
   maximumEventDowntime: 4
