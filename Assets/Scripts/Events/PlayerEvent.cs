@@ -5,10 +5,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public abstract class PlayerEvent : AbstractEvent
 {
-    private Vector3 ownStartPoint = new Vector3(4, 0, 0);
-    private Vector3 ownEndPoint = new Vector3(-4, 0, 0);
-
-    [DoNotSerialize] public new const int Progress = 100;
+    private Vector3 ownStartPoint = new Vector3(4, 4.4f, 0);
+    private Vector3 ownEndPoint = new Vector3(-4, 4.4f, 0);
 
     public float duration = 1.5f;
 
@@ -16,9 +14,9 @@ public abstract class PlayerEvent : AbstractEvent
 
     private void Awake()
     {
-        transform.position = new Vector3(0, 4.4f, 0);
         startPoint = ownStartPoint;
         endPoint = ownEndPoint;
+        transform.position = ownStartPoint;
     }
 
     public void Update()
