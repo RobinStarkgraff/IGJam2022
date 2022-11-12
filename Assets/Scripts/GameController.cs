@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
 
     private readonly List<PlayerEvent> _upcomingPlayerEvents = new List<PlayerEvent>();
+    private readonly List<PlayerEvent> _upcomingLevelEvents = new List<PlayerEvent>();
     [SerializeField] private int gameSpeed = 3;
     public Sprite shape;
 
