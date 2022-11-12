@@ -6,6 +6,9 @@ public class AbstractEvent : MonoBehaviour
 {
     public float progress;
 
+    public Vector3 StartPoint;
+    public Vector3 EndPoint;
+
     public void Start()
     {
         progress = 8;
@@ -13,12 +16,7 @@ public class AbstractEvent : MonoBehaviour
         spriteRenderer.sprite = GameController.Instance.shape;
     }
 
-    public void Update()
-    {
-        UpdatePosition();
-    }
-
-    protected void UpdatePosition()
+    public void UpdatePosition()
     {
         //Some position calculation
         Vector3 worldPos = transform.position;

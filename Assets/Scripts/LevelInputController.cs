@@ -9,6 +9,6 @@ public class LevelInputController : MonoBehaviour
 {
     public void OnJump()
     {
-        Debug.Log("Jump");
+        GameController.Instance.SpawnLevelEvent();
     }
 }

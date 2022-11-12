@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
     private readonly List<PlayerEvent> _upcomingPlayerEvents = new List<PlayerEvent>();
-    private readonly List<PlayerEvent> _upcomingLevelEvents = new List<PlayerEvent>();
-    [SerializeField] private int gameSpeed = 3;
+    private readonly List<LevelEvent> _upcomingLevelEvents = new List<LevelEvent>();
     public Sprite shape;
+    [SerializeField] private int gameSpeed = 3;
+    [SerializeField] private int minimumEventDowntime = 2;
+    [SerializeField] private int maximumEventDowntime = 4;
 
+    private float eventDownTime = 0;
 
     private void Awake()
     {
@@ -22,18 +26,65 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        GameObject newObject = Instantiate(new GameObject());
-        PlayerEvent playerEvent = newObject.AddComponent<PlayerEvent>();
-        _upcomingPlayerEvents.Add(playerEvent);
+        SpawnPlayerEvent();
     }
 
     private void Update()
     {
         float relativeSpeed = gameSpeed * Time.deltaTime;
 
+        RandomPlayerEventSpawner();
+
+        HandlePlayerEvents(relativeSpeed);
+        HandleLevelEvents(relativeSpeed);
+    }
+
+    private void HandlePlayerEvents(float relativeSpeed)
+    {
         foreach (PlayerEvent playerEvent in _upcomingPlayerEvents)
         {
             playerEvent.progress -= relativeSpeed;
+            playerEvent.UpdatePosition();
         }
+    }
+
+    private void HandleLevelEvents(float relativeSpeed)
+    {
+        foreach (LevelEvent levelEvent in _upcomingLevelEvents)
+        {
+            levelEvent.progress -= relativeSpeed;
+            levelEvent.UpdatePosition();
+        }
+    }
+
+    public void RandomPlayerEventSpawner()
+    {
+        eventDownTime -= Time.deltaTime;
+
+        if (eventDownTime > 0)
+        {
+            return;
+        }
+
+        SpawnPlayerEvent();
+    }
+
+    public void SpawnPlayerEvent()
+    {
+        GameObject newObject = new GameObject();
+        PlayerEvent playerEvent = newObject.AddComponent<PlayerEvent>();
+        playerEvent.UpdatePosition();
+        _upcomingPlayerEvents.Add(playerEvent);
+
+        eventDownTime = playerEvent.duration + Random.Range(minimumEventDowntime, maximumEventDowntime);
+    }
+
+    public void SpawnLevelEvent()
+    {
+        GameObject levelObject = new GameObject();
+        levelObject.AddComponent<BoxCollider2D>().isTrigger = true;
+        LevelEvent levelEvent = levelObject.AddComponent<LevelEvent>();
+        levelEvent.UpdatePosition();
+        _upcomingLevelEvents.Add(levelEvent);
     }
 }
