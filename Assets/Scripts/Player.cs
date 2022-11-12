@@ -31,16 +31,11 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // float currentHeight = (-2 * jumpHeight * timeSinceLastJump / totalJumpDuration) + 2 * jumpHeight;
-        
         float currentHeight = (jumpHeight * 2 / (float)Math.Pow(_totalJumpDuration, 2)) * (float)Math.Pow(timeSinceLastJump, 2) - jumpHeight * 2 * timeSinceLastJump / _totalJumpDuration;
         
-        // Debug.Log((float)Math.Pow(2 * totalJumpDuration, 2) + "   a");
-        // Debug.Log((float)Math.Pow(timeSinceLastJump, 2) + "   b");
-        // Debug.Log(currentHeight + "Height");
+        
         _animator.SetBool("isJumping", true);
         //Jump Animation
-        
         transform.position = new Vector3(defaultPosition.x, defaultPosition.y - currentHeight * 2, defaultPosition.z);
     }
 
@@ -51,7 +46,6 @@ public class Player : MonoBehaviour
 
     public void Jump(float duration)
     {
-        Debug.Log("Jump!");
         _totalJumpDuration = duration;
         _lastJumpTimeStamp = Time.time;
     }

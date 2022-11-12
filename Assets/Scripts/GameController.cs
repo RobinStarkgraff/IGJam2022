@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     {
         foreach (LevelEvent levelEvent in _upcomingLevelEvents)
         {
-            levelEvent.progress -= relativeSpeed;
+            levelEvent.progress -= relativeSpeed * 2;
             levelEvent.UpdatePosition();
         }
     }
@@ -76,6 +76,9 @@ public class GameController : MonoBehaviour
         playerEvent.UpdatePosition();
         _upcomingPlayerEvents.Add(playerEvent);
 
+        playerEvent.StartPoint = new Vector3(4, 4.4f,0);
+        playerEvent.EndPoint = new Vector3(-4, 4.4f,0);
+
         eventDownTime = playerEvent.duration + Random.Range(minimumEventDowntime, maximumEventDowntime);
     }
 
@@ -86,5 +89,9 @@ public class GameController : MonoBehaviour
         LevelEvent levelEvent = levelObject.AddComponent<LevelEvent>();
         levelEvent.UpdatePosition();
         _upcomingLevelEvents.Add(levelEvent);
+        
+        levelEvent.StartPoint = new Vector3(9, 0,0);
+        levelEvent.EndPoint = new Vector3(-4, 0,0);
+
     }
 }

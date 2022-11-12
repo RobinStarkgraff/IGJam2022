@@ -6,9 +6,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerEvent : AbstractEvent
 {
-    public float duration = 1.5f;
+    public new const int Progress = 100;
 
-    private float xOffset = -0.321f;
+    public float duration = 1.5f;
 
     private bool _executedAction = false;
 
@@ -19,7 +19,7 @@ public class PlayerEvent : AbstractEvent
 
     public void Update()
     {
-        if (!(transform.position.x + xOffset <= 0) || _executedAction) return;
+        if (!(transform.position.x <= EndPoint.x) || _executedAction) return;
 
         ExecutePlayerAction();
         _executedAction = true;
