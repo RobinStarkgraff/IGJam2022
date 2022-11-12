@@ -17,21 +17,17 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject prefabJumpLevelEvent;
     [SerializeField] private GameObject prefabShootPlayerEvent;
     [SerializeField] private GameObject prefabJumpPlayerEvent;
-    
+    [SerializeField] private GameObject prefabProjectile;
+
     [SerializeField] private int gameSpeed = 3;
-    [SerializeField] private int minimumEventDowntime = 2;
-    [SerializeField] private int maximumEventDowntime = 4;
+    [SerializeField] private float minimumEventDowntime = 0.5f;
+    [SerializeField] private float maximumEventDowntime = 3;
 
     private float eventDownTime = 0;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
-        SpawnPlayerEvent();
     }
 
     private void Update()
@@ -69,12 +65,21 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        SpawnPlayerEvent();
+        SpawnPlayerShootEvent();
     }
 
-    public void SpawnPlayerEvent()
+    public void SpawnPlayerJumpEvent()
     {
         GameObject playerEventObject = Instantiate(prefabJumpPlayerEvent);
+        PlayerEvent playerEvent = playerEventObject.GetComponent<PlayerEvent>();
+
+        _upcomingPlayerEvents.Add(playerEvent);
+        eventDownTime = playerEvent.duration + Random.Range(minimumEventDowntime, maximumEventDowntime);
+    }
+    
+    public void SpawnPlayerShootEvent()
+    {
+        GameObject playerEventObject = Instantiate(prefabShootPlayerEvent);
         PlayerEvent playerEvent = playerEventObject.GetComponent<PlayerEvent>();
 
         _upcomingPlayerEvents.Add(playerEvent);
@@ -92,6 +97,14 @@ public class GameController : MonoBehaviour
     public void SpawnShootLevelEvent()
     {
         GameObject levelEventObject = Instantiate(prefabShootLevelEvent);
+        LevelEvent levelEvent = levelEventObject.GetComponent<LevelEvent>();
+
+        _upcomingLevelEvents.Add(levelEvent);
+    }
+    
+    public void SpawnProjectileLevelEvent()
+    {
+        GameObject levelEventObject = Instantiate(prefabProjectile);
         LevelEvent levelEvent = levelEventObject.GetComponent<LevelEvent>();
 
         _upcomingLevelEvents.Add(levelEvent);

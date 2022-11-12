@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
 
+    private GameObject _prefabProjectile;
+
     public float jumpHeight = 5;
     public Vector3 defaultPosition = Vector3.zero;
 
@@ -48,14 +50,5 @@ public class Player : MonoBehaviour
     {
         _totalJumpDuration = duration;
         _lastJumpTimeStamp = Time.time;
-    }
-
-    public void Shoot()
-    {
-        GameObject projectile = new GameObject();
-        projectile.AddComponent<Collider2D>();
-        LevelEvent levelEvent = projectile.AddComponent<LevelEvent>();
-        levelEvent.startPoint = defaultPosition;
-        levelEvent.endPoint = defaultPosition + new Vector3();
     }
 }

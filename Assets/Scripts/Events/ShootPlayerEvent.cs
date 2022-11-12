@@ -9,6 +9,6 @@ public class ShootPlayerEvent : PlayerEvent
 {
     protected override void ExecutePlayerAction()
     {
-        Player.Instance.Shoot();
+        GameController.Instance.SpawnProjectileLevelEvent();
     }
 }
