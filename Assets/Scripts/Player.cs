@@ -41,4 +41,13 @@ public class Player : MonoBehaviour
         _totalJumpDuration = duration;
         _lastJumpTimeStamp = Time.time;
     }
+
+    public void Shoot()
+    {
+        GameObject projectile = new GameObject();
+        projectile.AddComponent<Collider2D>();
+        LevelEvent levelEvent = projectile.AddComponent<LevelEvent>();
+        levelEvent.startPoint = defaultPosition;
+        levelEvent.endPoint = defaultPosition + new Vector3();
+    }
 }
