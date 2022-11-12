@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,9 +13,11 @@ public class Player : MonoBehaviour
     private float _totalJumpDuration = 0;
     private float _lastJumpTimeStamp = -1000;
 
+    private Animator _animator;
     private void Awake()
     {
         Instance = this;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -22,12 +25,17 @@ public class Player : MonoBehaviour
         float timeSinceLastJump = Time.time - _lastJumpTimeStamp;
         if (timeSinceLastJump > _totalJumpDuration)
         {
+            _animator.SetBool("isJumping", false);
+            //running Animation
             this.transform.position = defaultPosition;
             return;
         }
 
         float currentHeight = (jumpHeight * 2 / (float)Math.Pow(_totalJumpDuration, 2)) * (float)Math.Pow(timeSinceLastJump, 2) - jumpHeight * 2 * timeSinceLastJump / _totalJumpDuration;
         
+        
+        _animator.SetBool("isJumping", true);
+        //Jump Animation
         transform.position = new Vector3(defaultPosition.x, defaultPosition.y - currentHeight * 2, defaultPosition.z);
     }
 
