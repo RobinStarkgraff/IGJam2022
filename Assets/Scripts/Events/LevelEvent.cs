@@ -15,6 +15,7 @@ public abstract class LevelEvent : AbstractEvent
     {
         startPoint = ownStartPoint;
         endPoint = ownEndPoint;
+        progress = Progress;
     }
 
     public override void UpdateProgress(float relativeSpeed)

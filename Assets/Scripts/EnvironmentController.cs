@@ -22,8 +22,8 @@ public class EnvironmentController : MonoBehaviour
 
     public void UpdateTexture(float relativeSpeed)
     {
-        progress += relativeSpeed;
-        float x = progress % width;
+        progress += relativeSpeed/100;
+        float x = progress;
         mat.mainTextureOffset = new Vector2(x, 0);
     }
 }

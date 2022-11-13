@@ -17,6 +17,7 @@ public abstract class PlayerEvent : AbstractEvent
         startPoint = ownStartPoint;
         endPoint = ownEndPoint;
         transform.position = ownStartPoint;
+        progress = Progress;
     }
 
     public void Update()

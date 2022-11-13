@@ -10,6 +10,7 @@ public class ProjectileLevelEvent : LevelEvent
     {
         startPoint = ownEndPoint;
         endPoint = ownStartPoint;
+        progress = Progress;
     }
 
     public override void UpdateProgress(float relativeSpeed)
