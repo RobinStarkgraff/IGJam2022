@@ -105,7 +105,6 @@ MonoBehaviour:
   prefabShootPlayerEvent: {fileID: 3687597407473129901, guid: 38ee247f3c0cf4c5d857d9415a277e6a, type: 3}
   prefabJumpPlayerEvent: {fileID: 3687597407473129901, guid: c1f995ddcdf8c4480bd618ed80867562, type: 3}
   prefabProjectile: {fileID: 3687597407473129901, guid: c65f03faf9f064df1ba8f4a72dc4beb9, type: 3}
-  gameSpeed: 30
   minimumEventDowntime: 2
   maximumEventDowntime: 4
   Score: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbb7cfd3b4214fdfb6262aaed687559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 0}
+  cloud: {fileID: 1258500248300545842, guid: 69d9e40a1943849488bf395979ca2d4c, type: 3}

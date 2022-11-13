@@ -6,7 +6,6 @@ public class TargetHit : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            //Player.Instance.Die();
             return;
         }
 

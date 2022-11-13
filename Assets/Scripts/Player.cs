@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public Canvas _gameOver;
     public GameObject _retry;
     public GameObject Score;
+    public TMP_Text ScoreText;
     private Animator _animator;
     private void Awake()
     {
@@ -56,16 +57,9 @@ public class Player : MonoBehaviour
     {
         Debug.Log("You are Dead!");
         _gameOver.gameObject.SetActive(true);
+        ScoreText.text = GameController.Instance.ScoreText.text;
+        _retry.gameObject.SetActive(false);
         Time.timeScale = 0;
-        Vector3 posi = _retry.transform.position;
-        Vector3 pos = Score.transform.position;
-        posi.x -= 500;
-        posi.y -= 270;
-        pos.x -= 500;
-        pos.y -= 130;
-        Score.transform.position = pos;
-        _retry.transform.position = posi;
-        //Potentially spawn something bigger here
     }
 
     public void Jump(float duration)

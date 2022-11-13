@@ -103,6 +103,8 @@ MonoBehaviour:
   defaultPosition: {x: -4, y: -0.15, z: 0}
   _gameOver: {fileID: 0}
   _retry: {fileID: 0}
+  Score: {fileID: 0}
+  ScoreText: {fileID: 0}
 --- !u!50 &3482693700453410402
 Rigidbody2D:
   serializedVersion: 4
