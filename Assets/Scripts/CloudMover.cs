@@ -26,6 +26,6 @@ public class CloudMover : MonoBehaviour
 
     private void Update()
     {
-        transform.position -= new Vector3(1, 0, 0) * (speed * GameController.Instance.GetGameSpeed() * Time.timeSinceLevelLoad);
+        transform.position -= new Vector3(1, 0, 0) * (speed * GameController.Instance.GetGameSpeed() * Time.deltaTime);
     }
 }

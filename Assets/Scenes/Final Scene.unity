@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 9137499376327875986, guid: 9af54610945914f58bb8b0e8b426ef35, type: 3}
+      propertyPath: cloud
+      value: 
+      objectReference: {fileID: 1258500248300545842, guid: 69d9e40a1943849488bf395979ca2d4c, type: 3}
     - target: {fileID: 9137499376327875990, guid: 9af54610945914f58bb8b0e8b426ef35, type: 3}
       propertyPath: m_RootOrder
       value: 1

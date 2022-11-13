@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        float timeSinceLastJump = Time.time - _lastJumpTimeStamp;
+        float timeSinceLastJump = Time.timeSinceLevelLoad - _lastJumpTimeStamp;
         float totalJumpDuration = _totalJumpDuration * 20 / GameController.Instance.GetGameSpeed();
         if (timeSinceLastJump > totalJumpDuration)
         {
@@ -66,6 +66,6 @@ public class Player : MonoBehaviour
     public void Jump(float duration)
     {
         _totalJumpDuration = duration;
-        _lastJumpTimeStamp = Time.time;
+        _lastJumpTimeStamp = Time.timeSinceLevelLoad;
     }
 }

@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        float relativeSpeed = gameSpeed * Time.timeSinceLevelLoad;
+        float relativeSpeed = gameSpeed * Time.deltaTime;
 
         RandomPlayerEventSpawner();
 
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
         EnvironmentController.Instance.UpdateTexture(relativeSpeed);
         ScoreText.text = Score.ToString();
 
-        gameSpeed = (float)Math.Pow(Time.time * 4, 0.7f) + 10f;
+        gameSpeed = (float)Math.Pow(Time.timeSinceLevelLoad * 4, 0.7f) + 10f;
     }
 
     public void AddScore(int scoreToBeAdded)
@@ -75,12 +75,13 @@ public class GameController : MonoBehaviour
 
     public void RandomPlayerEventSpawner()
     {
-        eventDownTime -= Time.timeSinceLevelLoad * gameSpeed/10;
+        eventDownTime -= Time.deltaTime * gameSpeed/10;
 
         if (eventDownTime > 0)
         {
             return;
         }
+        Debug.Log(Time.timeSinceLevelLoad);
 
         if (Random.Range(0, 100) > 30)
         {

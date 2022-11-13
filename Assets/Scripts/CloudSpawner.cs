@@ -19,7 +19,7 @@ public class CloudSpawner : MonoBehaviour
 
     private void SpawnCloud()
     {
-        eventDownTime -= Time.timeSinceLevelLoad;
+        eventDownTime -= Time.deltaTime;
 
         if (eventDownTime > 0)
         {
