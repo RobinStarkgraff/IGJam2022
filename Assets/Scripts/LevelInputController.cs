@@ -11,4 +11,9 @@ public class LevelInputController : MonoBehaviour
     {
         GameController.Instance.SpawnShootLevelEvent();
     }
+
+    public void OnAnyButton()
+    {
+        Tutorial.Instance.DisableTutorial();
+    }
 }

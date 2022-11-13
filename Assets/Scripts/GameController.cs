@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Time.timeScale = 0;
     }
 
     public float GetGameSpeed()

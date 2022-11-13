@@ -1,21 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public GameObject StartButton;
-    public GameObject TutorialButton;
-    // Start is called before the first frame update
+    public static Tutorial Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void DisableTutorial() 
     {
-        StartButton.gameObject.SetActive(false);
-        TutorialButton.gameObject.SetActive(false);
         Time.timeScale = 1;
-        
+        this.gameObject.SetActive(false);
     }
-    
-
-    // Update is called once per frame
-    
 }
