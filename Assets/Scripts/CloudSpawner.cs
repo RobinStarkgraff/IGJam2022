@@ -8,8 +8,6 @@ public class CloudSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject cloud;
 
-    private int speed = 2;
-
     private float eventDownTime = 0;
     private const float MinimumEventDowntime = 5.5f;
     private const float MaximumEventDowntime = 20;
