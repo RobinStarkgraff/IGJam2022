@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private float minimumEventDowntime = 0.5f;
     [SerializeField] private float maximumEventDowntime = 3;
 
+    public int Score = 0;
+
     private float eventDownTime = 0;
 
     private void Awake()
@@ -38,6 +40,11 @@ public class GameController : MonoBehaviour
 
         HandlePlayerEvents(relativeSpeed);
         HandleLevelEvents(relativeSpeed);
+    }
+
+    public void AddScore(int scoreToBeAdded)
+    {
+        Score += scoreToBeAdded;
     }
 
     private void HandlePlayerEvents(float relativeSpeed)
@@ -101,7 +108,7 @@ public class GameController : MonoBehaviour
 
         _upcomingLevelEvents.Add(levelEvent);
     }
-    
+
     public void SpawnProjectileLevelEvent()
     {
         GameObject levelEventObject = Instantiate(prefabProjectile);

@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("You are Dead!");
+        Time.timeScale = 0;
+        //Potentially spawn something bigger here
     }
 
     public void Jump(float duration)

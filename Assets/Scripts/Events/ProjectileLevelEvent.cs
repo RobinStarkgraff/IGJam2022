@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProjectileLevelEvent : LevelEvent
 {
+    protected override int pointsForEvent { get; } = 0;
+
     private void Awake()
     {
         startPoint = ownEndPoint;
