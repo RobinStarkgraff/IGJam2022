@@ -9,7 +9,7 @@ public abstract class LevelEvent : AbstractEvent
 
     protected bool hasScored = false;
 
-    protected abstract int pointsForEvent { get; }
+    public abstract int pointsForEvent { get; }
 
     private void Awake()
     {

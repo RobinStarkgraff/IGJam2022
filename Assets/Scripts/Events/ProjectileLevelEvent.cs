@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileLevelEvent : LevelEvent
 {
-    protected override int pointsForEvent { get; } = 0;
+    public override int pointsForEvent { get; } = 0;
 
     private void Awake()
     {

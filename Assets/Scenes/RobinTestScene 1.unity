@@ -408,8 +408,8 @@ MonoBehaviour:
   prefabJumpPlayerEvent: {fileID: 3687597407473129901, guid: c1f995ddcdf8c4480bd618ed80867562, type: 3}
   prefabProjectile: {fileID: 3687597407473129901, guid: c65f03faf9f064df1ba8f4a72dc4beb9, type: 3}
   gameSpeed: 30
-  minimumEventDowntime: 2
-  maximumEventDowntime: 4
+  minimumEventDowntime: 0.5
+  maximumEventDowntime: 2
   Score: 0
 --- !u!114 &519420034
 MonoBehaviour:
@@ -639,6 +639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 5
   defaultPosition: {x: -4, y: 0, z: 0}
+  _gameOver: {fileID: 0}
+  _retry: {fileID: 0}
 --- !u!58 &897940088
 CircleCollider2D:
   m_ObjectHideFlags: 0
