@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        float relativeSpeed = gameSpeed * Time.deltaTime;
+        float relativeSpeed = gameSpeed * Time.timeSinceLevelLoad;
 
         RandomPlayerEventSpawner();
 
@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 
     public void RandomPlayerEventSpawner()
     {
-        eventDownTime -= Time.deltaTime * gameSpeed/10;
+        eventDownTime -= Time.timeSinceLevelLoad * gameSpeed/10;
 
         if (eventDownTime > 0)
         {

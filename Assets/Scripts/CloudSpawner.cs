@@ -8,9 +8,9 @@ public class CloudSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject cloud;
 
-    private float eventDownTime = 0;
-    private const float MinimumEventDowntime = 5.5f;
-    private const float MaximumEventDowntime = 20;
+    private float eventDownTime = 2;
+    private const float MinimumEventDowntime = 0.2f;
+    private const float MaximumEventDowntime = 1f;
 
     private void Update()
     {
@@ -19,14 +19,14 @@ public class CloudSpawner : MonoBehaviour
 
     private void SpawnCloud()
     {
-        eventDownTime -= Time.deltaTime;
+        eventDownTime -= Time.timeSinceLevelLoad;
 
         if (eventDownTime > 0)
         {
             return;
         }
 
-        eventDownTime = Random.Range(MinimumEventDowntime, MaximumEventDowntime) / GameController.Instance.GetGameSpeed();
+        eventDownTime = Random.Range(MinimumEventDowntime, MaximumEventDowntime);
         Instantiate(cloud, new Vector3(1000, 0, 0), Quaternion.identity);
     }
 }
