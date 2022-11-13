@@ -640,7 +640,7 @@ MonoBehaviour:
   jumpHeight: 5
   defaultPosition: {x: -4, y: 0, z: 0}
   _gameOver: {fileID: 0}
-  _retry: {fileID: 0}
+  _retry: {fileID: 9170325830373455155, guid: 1d8ea907df3d849babbcefde241772ab, type: 3}
 --- !u!58 &897940088
 CircleCollider2D:
   m_ObjectHideFlags: 0
