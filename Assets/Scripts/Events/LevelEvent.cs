@@ -20,8 +20,6 @@ public abstract class LevelEvent : AbstractEvent
 
     public override void UpdateProgress(float relativeSpeed)
     {
-        Debug.Log(progress + " Progress");
-        Debug.Log(transform.position.x + " transform position x");
         progress -= relativeSpeed * 2;
 
         if (!hasScored)

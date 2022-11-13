@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
 
         HandlePlayerEvents(relativeSpeed);
         HandleLevelEvents(relativeSpeed);
+        EnvironmentController.Instance.UpdateTexture(relativeSpeed);
     }
 
     public void AddScore(int scoreToBeAdded)
