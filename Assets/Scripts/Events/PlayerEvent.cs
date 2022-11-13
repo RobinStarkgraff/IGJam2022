@@ -8,7 +8,7 @@ public abstract class PlayerEvent : AbstractEvent
     private Vector3 ownStartPoint = new Vector3(4, 4.4f, 0);
     private Vector3 ownEndPoint = new Vector3(-4, 4.4f, 0);
 
-    public float duration = 1.5f;
+    public float duration = 15f;
 
     private bool _executedAction = false;
 

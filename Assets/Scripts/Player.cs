@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private GameObject _prefabProjectile;
 
-    public float jumpHeight = 5;
+    [NonSerialized] public float jumpHeight = 2.5f;
     public Vector3 defaultPosition = Vector3.zero;
 
     private float _totalJumpDuration = 0;
@@ -28,16 +28,17 @@ public class Player : MonoBehaviour
     private void Update()
     {
         float timeSinceLastJump = Time.time - _lastJumpTimeStamp;
-        if (timeSinceLastJump > _totalJumpDuration)
+        float totalJumpDuration = _totalJumpDuration * 10 / GameController.Instance.GetGameSpeed();
+        if (timeSinceLastJump > totalJumpDuration)
         {
             _animator.SetBool("isJumping", false);
             //running Animation
             this.transform.position = defaultPosition;
-            
+
             return;
         }
 
-        float currentHeight = (jumpHeight * 2 / (float)Math.Pow(_totalJumpDuration, 2)) * (float)Math.Pow(timeSinceLastJump, 2) - jumpHeight * 2 * timeSinceLastJump / _totalJumpDuration;
+        float currentHeight = (jumpHeight * 2 / (float)Math.Pow(totalJumpDuration, 2)) * (float)Math.Pow(timeSinceLastJump, 2) - jumpHeight * 2 * timeSinceLastJump / totalJumpDuration;
         
         
         _animator.SetBool("isJumping", true);

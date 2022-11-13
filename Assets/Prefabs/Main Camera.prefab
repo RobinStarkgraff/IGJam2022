@@ -164,9 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbb7cfd3b4214fdfb6262aaed687559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud1: {fileID: 0}
-  cloud2: {fileID: 0}
-  cloud3: {fileID: 0}
-  cloud4: {fileID: 0}
-  speed: 2
-  upcomingclouds: []
+  cloud: {fileID: 0}

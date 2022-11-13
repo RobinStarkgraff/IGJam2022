@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject prefabProjectile;
     
 
-    [SerializeField] private float gameSpeed = 3;
+    private float gameSpeed = 0;
     [SerializeField] private float minimumEventDowntime = 0.5f;
     [SerializeField] private float maximumEventDowntime = 3;
 
@@ -33,6 +33,11 @@ public class GameController : MonoBehaviour
         Instance = this;
     }
 
+    public float GetGameSpeed()
+    {
+        return gameSpeed;
+    }
+
     private void Update()
     {
         float relativeSpeed = gameSpeed * Time.deltaTime;
@@ -44,7 +49,7 @@ public class GameController : MonoBehaviour
         EnvironmentController.Instance.UpdateTexture(relativeSpeed);
         ScoreText.text = Score.ToString();
 
-        gameSpeed = (float)Math.Pow(Time.time * 0.1, 0.9f);
+        gameSpeed = (float)Math.Pow(Time.time * 4, 0.7f) + 10f;
     }
 
     public void AddScore(int scoreToBeAdded)
@@ -70,7 +75,7 @@ public class GameController : MonoBehaviour
 
     public void RandomPlayerEventSpawner()
     {
-        eventDownTime -= Time.deltaTime;
+        eventDownTime -= Time.deltaTime * gameSpeed/10;
 
         if (eventDownTime > 0)
         {
