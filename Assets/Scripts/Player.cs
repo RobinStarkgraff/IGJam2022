@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public Canvas _gameOver;
     public GameObject _retry;
     public GameObject Score;
+    
     private Animator _animator;
     private void Awake()
     {
