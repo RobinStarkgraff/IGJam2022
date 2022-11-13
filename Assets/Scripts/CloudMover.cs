@@ -9,12 +9,12 @@ public class CloudMover : MonoBehaviour
     [SerializeField] private List<Sprite> clouds;
 
 
-    private float minimumHeight = 2;
-    private float maximumHeight = 3;
+    private float minimumHeight = 1.5f;
+    private float maximumHeight = 5;
 
     private float speed;
-    private float minimumSpeed = 0.5f;
-    private float maximumSpeed = 2;
+    private float minimumSpeed = 0.05f;
+    private float maximumSpeed = 0.2f;
 
     private void Awake()
     {
@@ -26,6 +26,6 @@ public class CloudMover : MonoBehaviour
 
     private void Update()
     {
-        transform.position += new Vector3(1, 0, 0) * (speed * Time.deltaTime);
+        transform.position -= new Vector3(1, 0, 0) * (speed * GameController.Instance.GetGameSpeed() * Time.deltaTime);
     }
 }

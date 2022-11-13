@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         float timeSinceLastJump = Time.time - _lastJumpTimeStamp;
-        float totalJumpDuration = _totalJumpDuration * 10 / GameController.Instance.GetGameSpeed();
+        float totalJumpDuration = _totalJumpDuration * 20 / GameController.Instance.GetGameSpeed();
         if (timeSinceLastJump > totalJumpDuration)
         {
             _animator.SetBool("isJumping", false);
