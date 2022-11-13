@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3482693700453410413}
   - component: {fileID: 3482693700453410414}
   - component: {fileID: 3482693700453410412}
-  - component: {fileID: 3482693700453410403}
   - component: {fileID: 3482693700453410402}
   - component: {fileID: 3482693700453410401}
+  - component: {fileID: 7809446278633947678}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -100,26 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9134a65e01044b15a73fa718a4d06999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 5
   defaultPosition: {x: -4, y: -0.15, z: 0}
   _gameOver: {fileID: 0}
   _retry: {fileID: 0}
---- !u!58 &3482693700453410403
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3482693700453410415}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &3482693700453410402
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +144,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &7809446278633947678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482693700453410415}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026104331, y: -0.039156675}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.26707911, y: 0.56168664}
+  m_EdgeRadius: 0
