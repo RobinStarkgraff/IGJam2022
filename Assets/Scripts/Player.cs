@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
     private float _totalJumpDuration = 0;
     private float _lastJumpTimeStamp = -1000;
 
+    public Canvas _gameOver;
+    public GameObject _retry;
     private Animator _animator;
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
             _animator.SetBool("isJumping", false);
             //running Animation
             this.transform.position = defaultPosition;
+            
             return;
         }
 
@@ -44,7 +48,12 @@ public class Player : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("You are Dead!");
+        _gameOver.gameObject.SetActive(true);
         Time.timeScale = 0;
+        Vector3 posi = _retry.transform.position;
+        posi.x -= 500;
+        posi.y -= 300;
+        _retry.transform.position = posi;
         //Potentially spawn something bigger here
     }
 
