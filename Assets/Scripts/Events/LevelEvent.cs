@@ -15,10 +15,13 @@ public abstract class LevelEvent : AbstractEvent
     {
         startPoint = ownStartPoint;
         endPoint = ownEndPoint;
+        progress = Progress;
     }
 
     public override void UpdateProgress(float relativeSpeed)
     {
+        Debug.Log(progress + " Progress");
+        Debug.Log(transform.position.x + " transform position x");
         progress -= relativeSpeed * 2;
 
         if (!hasScored)

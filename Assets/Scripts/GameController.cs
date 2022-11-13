@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnPlayerJumpEvent()
     {
-        GameObject playerEventObject = Instantiate(prefabJumpPlayerEvent);
+        GameObject playerEventObject = Instantiate(prefabJumpPlayerEvent, new Vector3(1000, 0, 0), Quaternion.identity);
         PlayerEvent playerEvent = playerEventObject.GetComponent<PlayerEvent>();
 
         _upcomingPlayerEvents.Add(playerEvent);
@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
     
     public void SpawnPlayerShootEvent()
     {
-        GameObject playerEventObject = Instantiate(prefabShootPlayerEvent);
+        GameObject playerEventObject = Instantiate(prefabShootPlayerEvent, new Vector3(1000, 0, 0), Quaternion.identity);
         PlayerEvent playerEvent = playerEventObject.GetComponent<PlayerEvent>();
 
         _upcomingPlayerEvents.Add(playerEvent);
@@ -95,7 +95,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnJumpLevelEvent()
     {
-        GameObject levelEventObject = Instantiate(prefabJumpLevelEvent);
+        GameObject levelEventObject = Instantiate(prefabJumpLevelEvent, new Vector3(1000, 0, 0), Quaternion.identity);
         LevelEvent levelEvent = levelEventObject.GetComponent<LevelEvent>();
 
         _upcomingLevelEvents.Add(levelEvent);
@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnShootLevelEvent()
     {
-        GameObject levelEventObject = Instantiate(prefabShootLevelEvent);
+        GameObject levelEventObject = Instantiate(prefabShootLevelEvent, new Vector3(1000, 0, 0), Quaternion.identity);
         LevelEvent levelEvent = levelEventObject.GetComponent<LevelEvent>();
 
         _upcomingLevelEvents.Add(levelEvent);
@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnProjectileLevelEvent()
     {
-        GameObject levelEventObject = Instantiate(prefabProjectile);
+        GameObject levelEventObject = Instantiate(prefabProjectile, new Vector3(1000, 0, 0), Quaternion.identity);
         LevelEvent levelEvent = levelEventObject.GetComponent<LevelEvent>();
 
         _upcomingLevelEvents.Add(levelEvent);

@@ -11,11 +11,6 @@ public abstract class AbstractEvent : MonoBehaviour
     [NonSerialized] public Vector3 startPoint;
     [NonSerialized] public Vector3 endPoint;
 
-    public void Start()
-    {
-        progress = Progress;
-    }
-
     public void UpdatePosition(float relativeSpeed)
     {
         UpdateProgress(relativeSpeed);
