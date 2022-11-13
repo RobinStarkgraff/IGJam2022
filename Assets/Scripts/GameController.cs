@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mime;
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
@@ -22,7 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject prefabProjectile;
     
 
-    [SerializeField] private int gameSpeed = 3;
+    [SerializeField] private float gameSpeed = 3;
     [SerializeField] private float minimumEventDowntime = 0.5f;
     [SerializeField] private float maximumEventDowntime = 3;
 
@@ -47,6 +43,8 @@ public class GameController : MonoBehaviour
         HandleLevelEvents(relativeSpeed);
         EnvironmentController.Instance.UpdateTexture(relativeSpeed);
         ScoreText.text = Score.ToString();
+
+        gameSpeed = (float)Math.Pow(Time.time * 0.1, 0.9f);
     }
 
     public void AddScore(int scoreToBeAdded)
