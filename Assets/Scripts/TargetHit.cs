@@ -6,7 +6,8 @@ public class TargetHit : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            Player.Instance.Die();
+            //Player.Instance.Die();
+            return;
         }
 
         LevelEvent levelEvent = GetComponent<ShootLevelEvent>();
