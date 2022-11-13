@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
@@ -18,6 +20,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject prefabShootPlayerEvent;
     [SerializeField] private GameObject prefabJumpPlayerEvent;
     [SerializeField] private GameObject prefabProjectile;
+    
 
     [SerializeField] private int gameSpeed = 3;
     [SerializeField] private float minimumEventDowntime = 0.5f;
@@ -27,6 +30,8 @@ public class GameController : MonoBehaviour
 
     private float eventDownTime = 0;
 
+    public TMP_Text ScoreText;
+    
     private void Awake()
     {
         Instance = this;
@@ -41,6 +46,7 @@ public class GameController : MonoBehaviour
         HandlePlayerEvents(relativeSpeed);
         HandleLevelEvents(relativeSpeed);
         EnvironmentController.Instance.UpdateTexture(relativeSpeed);
+        ScoreText.text = Score.ToString();
     }
 
     public void AddScore(int scoreToBeAdded)
@@ -110,6 +116,7 @@ public class GameController : MonoBehaviour
         _upcomingLevelEvents.Add(levelEvent);
     }
 
+    
     public void SpawnProjectileLevelEvent()
     {
         GameObject levelEventObject = Instantiate(prefabProjectile, new Vector3(1000, 0, 0), Quaternion.identity);
