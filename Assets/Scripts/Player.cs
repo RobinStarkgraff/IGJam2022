@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Die();
+    }
+
+    public void Die()
+    {
         Debug.Log("You are Dead!");
         _gameOver.gameObject.SetActive(true);
         Time.timeScale = 0;

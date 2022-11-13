@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class JumpLevelEvent : LevelEvent
 {
-    protected override int pointsForEvent { get; } = 100;
-
+    public override int pointsForEvent { get; } = 100;
 }

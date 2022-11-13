@@ -124,4 +124,9 @@ public class GameController : MonoBehaviour
 
         _upcomingLevelEvents.Add(levelEvent);
     }
+
+    public void RemoveLevelEvents(LevelEvent levelEvent)
+    {
+        _upcomingLevelEvents.Remove(levelEvent);
+    }
 }
