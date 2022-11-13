@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         Time.timeScale = 0;
         Vector3 posi = _retry.transform.position;
         posi.x -= 500;
-        posi.y -= 300;
+        posi.y -= 270;
         _retry.transform.position = posi;
         //Potentially spawn something bigger here
     }
