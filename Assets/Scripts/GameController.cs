@@ -79,6 +79,12 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        if (Random.Range(0, 100) > 30)
+        {
+            SpawnPlayerJumpEvent();
+            return;
+        }
+
         SpawnPlayerShootEvent();
     }
 
